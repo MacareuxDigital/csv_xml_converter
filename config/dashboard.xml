@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<concrete5-cif version="1.0">
+    <singlepages>
+        <page name="CSV Converter" path="/dashboard/system/csv_xml_converter"
+              filename="/dashboard/system/csv_xml_converter/view.php" pagetype="" description=""
+              package="csv_xml_converter"
+              global="false"/>
+        <page name="Convert Users" path="/dashboard/system/csv_xml_converter/users"
+              filename="/dashboard/system/csv_xml_converter/users.php" pagetype="" description=""
+              package="csv_xml_converter"
+              global="false"/>
+    </singlepages>
+</concrete5-cif>
