@@ -6,10 +6,10 @@ Generate Import Batch XML from CSV file.
 
 * Upload CSV File and convert it to concrete5 Content Import Format XML File.
 * Supported Content Type:
-    * Users
+  * Pages
+  * Users
 * Not Supported Content Type (TODO):
-    * Pages
-    * Files
+  * Files
 
 ## Install
 

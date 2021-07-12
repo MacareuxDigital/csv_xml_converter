@@ -19,7 +19,7 @@ class Controller extends Package
     /**
      * @var string Package version.
      */
-    protected $pkgVersion = '0.1';
+    protected $pkgVersion = '0.2';
     
     /**
      * @var array Array of location -> namespace autoloader entries for the package.
@@ -57,7 +57,14 @@ class Controller extends Package
     public function install()
     {
         $pkg = parent::install();
-        $ci = new ContentImporter();
-        $ci->importContentFile($pkg->getPackagePath() . '/config/dashboard.xml');
+        $this->installContentFile('/config/dashboard.xml');
+
+        return $pkg;
+    }
+
+    public function upgrade()
+    {
+        parent::upgrade();
+        $this->installContentFile('/config/dashboard.xml');
     }
 }

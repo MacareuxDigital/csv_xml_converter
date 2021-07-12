@@ -5,6 +5,10 @@
               filename="/dashboard/system/csv_xml_converter/view.php" pagetype="" description=""
               package="csv_xml_converter"
               global="false"/>
+        <page name="Convert Pages" path="/dashboard/system/csv_xml_converter/pages"
+              filename="/dashboard/system/csv_xml_converter/pages.php" pagetype="" description=""
+              package="csv_xml_converter"
+              global="false"/>
         <page name="Convert Users" path="/dashboard/system/csv_xml_converter/users"
               filename="/dashboard/system/csv_xml_converter/users.php" pagetype="" description=""
               package="csv_xml_converter"
