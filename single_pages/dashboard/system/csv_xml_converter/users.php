@@ -1,4 +1,4 @@
-<?php defined('C5_EXECUTE') or die("Access Denied."); ?>
+<?php defined('C5_EXECUTE') or die('Access Denied.'); ?>
 
 <?php if (isset($header) && is_array($header)) { ?>
 
@@ -7,8 +7,8 @@
         <table class="table">
             <thead>
             <tr>
-                <th><?=t('CSV Header');?></th>
-                <th><?=t('Maps To');?></th>
+                <th><?=t('CSV Header'); ?></th>
+                <th><?=t('Maps To'); ?></th>
             </tr>
             </thead>
             <tbody>

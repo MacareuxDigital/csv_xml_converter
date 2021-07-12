@@ -1,5 +1,5 @@
 <?php
-defined('C5_EXECUTE') or die("Access Denied.");
+defined('C5_EXECUTE') or die('Access Denied.');
 
 /** @var \Concrete\Core\Form\Service\Form $form */
 $options = $options ?? [];
@@ -12,8 +12,8 @@ $options = $options ?? [];
         <table class="table">
             <thead>
             <tr>
-                <th><?=t('CSV Header');?></th>
-                <th><?=t('Maps To');?></th>
+                <th><?=t('CSV Header'); ?></th>
+                <th><?=t('Maps To'); ?></th>
             </tr>
             </thead>
             <tbody>

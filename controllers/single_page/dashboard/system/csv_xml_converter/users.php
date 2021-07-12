@@ -1,4 +1,5 @@
 <?php
+
 namespace Concrete\Package\CsvXmlConverter\Controller\SinglePage\Dashboard\System\CsvXmlConverter;
 
 use Concrete\Core\Attribute\Category\AbstractCategory;
@@ -7,7 +8,6 @@ use Concrete\Core\Entity\File\Version;
 use Concrete\Core\File\File;
 use Concrete\Core\Http\Response;
 use Concrete\Core\Page\Controller\DashboardPageController;
-use Concrete\Package\CsvXmlConverter\Attribute\Value\ImportValue;
 use League\Csv\Reader;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
@@ -24,7 +24,7 @@ class Users extends DashboardPageController
         if (!is_object($f)) {
             $this->error->add(t('Invalid file.'));
         } else {
-            ini_set("auto_detect_line_endings", true);
+            ini_set('auto_detect_line_endings', true);
 
             $resource = $f->getFileResource();
             $reader = Reader::createFromStream($resource->readStream());
@@ -42,7 +42,7 @@ class Users extends DashboardPageController
             $options = [
                 '' => t('Ignore'),
                 'uName' => t('User Name'),
-                'uEmail' => t('Email')
+                'uEmail' => t('Email'),
             ];
 
             /** @var \Concrete\Core\Entity\Attribute\Key\UserKey[] $keys */
@@ -50,7 +50,7 @@ class Users extends DashboardPageController
             foreach ($keys as $key) {
                 // @TODO: support not string attribute type
                 if (!in_array($key->getAttributeTypeHandle(), [
-                    'address', 'boolean', 'image_file', 'select', 'social_links', 'topics'
+                    'address', 'boolean', 'image_file', 'select', 'social_links', 'topics',
                 ])) {
                     $options[$key->getAttributeKeyID()] = $key->getAttributeKeyDisplayName();
                 }
@@ -72,7 +72,7 @@ class Users extends DashboardPageController
         if (!is_object($f)) {
             $this->error->add(t('Invalid file.'));
         } else {
-            ini_set("auto_detect_line_endings", true);
+            ini_set('auto_detect_line_endings', true);
 
             $resource = $f->getFileResource();
             $reader = Reader::createFromStream($resource->readStream());
@@ -87,7 +87,7 @@ class Users extends DashboardPageController
             $reader->setOffset(1);
             $results = $reader->fetch();
 
-            $root = new \SimpleXMLElement("<concrete5-cif></concrete5-cif>");
+            $root = new \SimpleXMLElement('<concrete5-cif></concrete5-cif>');
             $root->addAttribute('version', '1.0');
             $usersNode = $root->addChild('users');
 
@@ -133,9 +133,9 @@ class Users extends DashboardPageController
             $response = new Response($root->asXML());
             $dispositionHeader = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $filename);
             $response->headers->set('Content-Disposition', $dispositionHeader);
+
             return $response;
-        } else {
-            $this->view();
         }
+        $this->view();
     }
 }

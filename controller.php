@@ -1,7 +1,7 @@
 <?php
+
 namespace Concrete\Package\CsvXmlConverter;
 
-use Concrete\Core\Backup\ContentImporter;
 use Concrete\Core\Package\Package;
 
 class Controller extends Package
@@ -20,14 +20,14 @@ class Controller extends Package
      * @var string Package version.
      */
     protected $pkgVersion = '0.2';
-    
+
     /**
      * @var array Array of location -> namespace autoloader entries for the package.
      */
     protected $pkgAutoloaderRegistries = [];
-    
+
     protected $pkgAutoloaderMapCoreExtensions = true;
-    
+
     /**
      * Returns the translated name of the package.
      *

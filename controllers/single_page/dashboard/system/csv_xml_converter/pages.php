@@ -1,11 +1,8 @@
 <?php
+
 namespace Concrete\Package\CsvXmlConverter\Controller\SinglePage\Dashboard\System\CsvXmlConverter;
 
-use Carbon\Carbon;
-use Concrete\Core\Attribute\Category\AbstractCategory;
 use Concrete\Core\Attribute\Category\PageCategory;
-use Concrete\Core\Attribute\Key\CollectionKey;
-use Concrete\Core\Attribute\Key\UserKey;
 use Concrete\Core\Entity\File\Version;
 use Concrete\Core\File\File;
 use Concrete\Core\Page\Controller\DashboardPageController;
@@ -28,7 +25,7 @@ class Pages extends DashboardPageController
         if (!is_object($f)) {
             $this->error->add(t('Invalid file.'));
         } else {
-            ini_set("auto_detect_line_endings", true);
+            ini_set('auto_detect_line_endings', true);
 
             $resource = $f->getFileResource();
             $reader = Reader::createFromStream($resource->readStream());
@@ -76,7 +73,7 @@ class Pages extends DashboardPageController
         if (!is_object($f)) {
             $this->error->add(t('Invalid file.'));
         } else {
-            ini_set("auto_detect_line_endings", true);
+            ini_set('auto_detect_line_endings', true);
 
             $resource = $f->getFileResource();
             $reader = Reader::createFromStream($resource->readStream());
@@ -96,7 +93,7 @@ class Pages extends DashboardPageController
             $reader->setOffset(1);
             $results = $reader->fetch();
 
-            $root = new \SimpleXMLElement("<concrete5-cif></concrete5-cif>");
+            $root = new \SimpleXMLElement('<concrete5-cif></concrete5-cif>');
             $root->addAttribute('version', '1.0');
             $usersNode = $root->addChild('pages');
 
@@ -192,6 +189,7 @@ class Pages extends DashboardPageController
             $response = new Response($root->asXML());
             $dispositionHeader = $response->headers->makeDisposition(ResponseHeaderBag::DISPOSITION_ATTACHMENT, $filename);
             $response->headers->set('Content-Disposition', $dispositionHeader);
+
             return $response;
         }
     }
