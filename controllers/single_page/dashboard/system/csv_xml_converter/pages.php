@@ -143,10 +143,14 @@ class Pages extends DashboardPageController
                                 $akNode->addChild('value', (new \DateTime($val))->format('Y-m-d H:i:s'));
                                 break;
                             case 'image_file':
-                                $akNode->addChild('value', '{ccm:export:file:' . $val . '}');
+                                $valNode = $akNode->addChild('value');
+                                $valNode->addChild('fID', '{ccm:export:file:' . $val . '}');
+                                break;
+                            case 'user_selectpr':
+                                $akNode->addChild('value', $val);
                                 break;
                             case 'page_selector':
-                                $akNode->addChild('value', $val);
+                                $akNode->addChild('value', '{ccm:export:page:' . $val . '}');
                                 break;
                             case 'select':
                                 $options = explode(':', $val);
